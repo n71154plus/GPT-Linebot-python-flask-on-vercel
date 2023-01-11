@@ -19,7 +19,7 @@ class DALL_E:
         response = openai.Image.create(
             prompt=text1,
             n=1,
-            size="256x256"
+            size="1024x1024"
         )
         return response["data"][0]["url"]
 
