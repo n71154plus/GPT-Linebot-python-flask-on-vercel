@@ -1,7 +1,7 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 from api.chatgpt import ChatGPT
 from api.DALL_E import DALL_E
 
@@ -59,13 +59,7 @@ def handle_message(event):
         #reply_msg = chatgpt.get_response().replace("AI:", "", 1)
         #chatgpt.add_msg(f"AI:{reply_msg}\n")
         reply_msg = DALL_E.get_response(text1=event.message.text)
-        line_bot_api.reply_message(
-            event.reply_token,
-            {
-        type: 'image',
-        originalContentUrl: reply_msg,
-        previewImageUrl: reply_msg
-    })
+        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=reply_msg, preview_image_url=reply_msg))
 
 
 if __name__ == "__main__":
