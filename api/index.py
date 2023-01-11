@@ -58,8 +58,7 @@ def handle_message(event):
         #chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         #reply_msg = chatgpt.get_response().replace("AI:", "", 1)
         #chatgpt.add_msg(f"AI:{reply_msg}\n")
-        DALL_E.add_msg(f"{event.message.text}")
-        reply_msg = DALL_E.get_response()
+        reply_msg = DALL_E.get_response(event.message.text)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=reply_msg))
