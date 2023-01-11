@@ -15,7 +15,7 @@ class DALL_E:
         self.presence_penalty = float(os.getenv("OPENAI_PRESENCE_PENALTY", default = 0.6))
         self.max_tokens = int(os.getenv("OPENAI_MAX_TOKENS", default = 240))
 
-    def get_response(self,text1=""):
+    def get_response(text1=""):
         response = openai.Image.create(
             prompt=text1,
             n=1,
