@@ -60,7 +60,7 @@ def handle_message(event):
             event.reply_token, [
                 TextSendMessage(text='Display name: ' + profile.display_name),
                 TextSendMessage(text='Status message: ' + str(profile.status_message)),
-                TextSendMessage(text='UserID: ' + profile.userid)
+                TextSendMessage(text='UserID: ' + event.source.user_id)
             ]
         )
         return
