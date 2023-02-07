@@ -61,6 +61,7 @@ def handle_message(event):
                 TextSendMessage(text='Display name: ' + profile.display_name),
                 TextSendMessage(text='Status message: ' + str(profile.status_message))
             ]
+        )
         return
     
     #if working_status:
