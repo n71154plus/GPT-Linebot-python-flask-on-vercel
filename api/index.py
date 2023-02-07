@@ -56,8 +56,8 @@ def handle_message(event):
     
     if event.message.text == "profile":
         profile = line_bot_api.get_profile(event.source.user_id)
-        line_bot_api.reply_message(
-            event.reply_token, [
+        line_bot_api.push_message(
+            event.source.user_id, [
                 TextSendMessage(text='Display name: ' + profile.display_name),
                 TextSendMessage(text='Status message: ' + str(profile.status_message)),
                 TextSendMessage(text='UserID: ' + event.source.user_id)
