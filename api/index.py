@@ -53,7 +53,16 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text="好的，我乖乖閉嘴 > <，如果想要我繼續說話，請跟我說 「說話」 > <"))
         return
-
+    
+    if event.message.text == "profile":
+        profile = line_bot_api.get_profile(event.source.user_id)
+        line_bot_api.reply_message(
+            event.reply_token, [
+                TextSendMessage(text='Display name: ' + profile.display_name),
+                TextSendMessage(text='Status message: ' + str(profile.status_message))
+            ]
+        return
+    
     #if working_status:
         #chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         #reply_msg = chatgpt.get_response().replace("AI:", "", 1)
