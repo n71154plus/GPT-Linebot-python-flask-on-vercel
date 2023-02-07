@@ -68,7 +68,7 @@ def handle_message(event):
     if working_status:
         #chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         #reply_msg = chatgpt.get_response().replace("AI:", "", 1)
-        chatgpt.add_msg(f"AI:{reply_msg}\n")
+        #chatgpt.add_msg(f"AI:{reply_msg}\n")
         reply_msg = DALL_E.get_response(text1=event.message.text)
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=reply_msg, preview_image_url=reply_msg))
     #if working_status:
