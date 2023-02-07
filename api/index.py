@@ -65,7 +65,7 @@ def handle_message(event):
         )
         return
     
-    #if working_status:
+    if working_status:
         #chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         #reply_msg = chatgpt.get_response().replace("AI:", "", 1)
         chatgpt.add_msg(f"AI:{reply_msg}\n")
