@@ -59,7 +59,9 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token, [
                 TextSendMessage(text='Display name: ' + profile.display_name),
-                TextSendMessage(text='Status message: ' + str(profile.status_message))
+                TextSendMessage(text='Status message: ' + str(profile.status_message)),
+                TextSendMessage(text=json.dumps(profile))
+                
             ]
         )
         return
